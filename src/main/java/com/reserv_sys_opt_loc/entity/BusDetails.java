@@ -23,6 +23,9 @@ public class BusDetails {
     @Column(name = "seat_capacity", nullable = false)
     private Integer Capacity;
 
+    @Version
+    private Long version;
+
 
     @OneToMany(mappedBy = "busDetails")
     private Set<Ticket> tickets;

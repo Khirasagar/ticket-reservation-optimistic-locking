@@ -5,6 +5,7 @@ import com.reserv_sys_opt_loc.entity.BusDetails;
 import com.reserv_sys_opt_loc.entity.Ticket;
 import com.reserv_sys_opt_loc.repository.BusDetailsRepository;
 import com.reserv_sys_opt_loc.repository.TicketRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,7 @@ public class BusDetailsBookingService {
     @Autowired
     private TicketRepository ticketRepository;
 
+    @Transactional
     private void saveTicket(String firstName,String lastName ,String gender,BusDetails busDetails ) throws SeatNotAvailable {
         if (busDetails.getCapacity() <= busDetails.getTickets().size()){
             throw new SeatNotAvailable();

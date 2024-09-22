@@ -22,7 +22,10 @@ public class Ticket {
 
     @Column(name = "gender")
     private String gender;
-    
+
+    @Version
+    private Long version;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "bus_details_id")
